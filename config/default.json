@@ -1,0 +1,12 @@
+{
+    "mysql":{
+        "banco-de-dados": "testedb",
+        "usuario": "root",
+        "senha": "MySql2019!",
+        "host": "localhost",
+        "port": "3306:3306"
+    },
+    "api": {
+        "porta": 3000
+    }
+}

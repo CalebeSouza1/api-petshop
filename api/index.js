@@ -10,9 +10,6 @@ const ValorNaoSuportado = require('./erros/ValorNaoSuportado')
 const formatosAceitos = require('./Serializador').formatosAceitos
 
 app.use(bodyParser.json())
-
-app.use('/api/fonecedores', roteador)
-
 app.use((requisicao, resposta, proximo) => {
     let formatoRequisitado = requisicao.header('Accept')
 
@@ -29,6 +26,8 @@ app.use((requisicao, resposta, proximo) => {
     resposta.setHeader('Content-Type', formatoRequisitado)
     proximo()
 })
+app.use('/api/fonecedores', roteador)
+
 
 app.use((erro, requisicao, resposta, proximo) => {
     let status = 500

@@ -16,11 +16,12 @@ module.exports = {
         })
 
         if (!encontrado) {
-            throw new NaoEncontrado()
+            throw new NaoEncontrado('Atenção, fornecedor não encontrado!')
         }
         
         return encontrado
     },
+    
     atualizar(id, dadosParaAtualizar) {
         return Modelo.update(
             dadosParaAtualizar,

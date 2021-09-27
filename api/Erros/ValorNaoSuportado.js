@@ -1,4 +1,4 @@
-class ValorNaoSuportado extends Error{
+class ValorNaoSuportado extends Error {
     constructor(contentType) {
         super(`Pedi arrego. O tipo de conteudo ${contentType} não é suportado!`)
         this.name = 'ValorNaoSuportado'

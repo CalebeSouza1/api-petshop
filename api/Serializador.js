@@ -41,14 +41,14 @@ class Serializador {
 }
 
 class SerializadorFornecedor extends Serializador {
-    constructor (contentType, camposExtras) {
+    constructor (contentType) {
         super()
         this.contentType = contentType
         this.camposPublicos = [
             'id',
             'empresa',
             'categoria'
-        ].concat(camposExtras || [])
+        ]
     }
 }
 

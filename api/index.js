@@ -10,6 +10,7 @@ const ValorNaoSuportado = require('./erros/ValorNaoSuportado')
 const formatosAceitos = require('./Serializador').formatosAceitos
 
 app.use(bodyParser.json())
+
 app.use((requisicao, resposta, proximo) => {
     let formatoRequisitado = requisicao.header('Accept')
 

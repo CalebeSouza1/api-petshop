@@ -3,7 +3,7 @@ const CampoInvalido = require('../../erros/CampoInvalido')
 const DadosNaoFornecidos = require('../../erros/DadosNaoFornecidos')
 
 class Fornecedor {
-    constructor({ id, empresa, email, categoria, dataCriacao, dataAtualizacao, versao}){
+    constructor( {id, empresa, email, categoria, dataCriacao, dataAtualizacao, versao}){
         this.id = id
         this.empresa = empresa
         this.email = email
@@ -41,28 +41,33 @@ class Fornecedor {
         const campos = ['empresa', 'email', 'categoria']
         const dadosParaAtualizar = {}
 
-        campos.forEach((campo) =>{
+        campos.forEach((campo) => {
             const valor = this[campo]
+
             if(typeof valor === 'string' && valor.length > 0) {
                 dadosParaAtualizar[campo] = valor
+                
             }
         })
+
         if (Object.keys(dadosParaAtualizar).length === 0) {
             throw new DadosNaoFornecidos ()
         }
 
         await TabelaFornecedor.atualizar(this.id, dadosParaAtualizar)
     }
+    
     remover () {
         return TabelaFornecedor.remover(this.id)
     }
+
     validar () {
         const campos = ['empresa', 'email', 'categoria']
 
         campos.forEach(campo => {
             const valor = this[campo]
 
-            if (typeof valor !== 'string' || valor.length === 0){
+            if (typeof valor !== 'string' || valor.length === 0) { 
                 throw new CampoInvalido(campo)
             }
         })
